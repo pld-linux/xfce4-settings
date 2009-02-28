@@ -7,6 +7,7 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	ac538c4ab32e3a91f4567141adc3c898
+Patch0:		%{name}-default-icon-theme.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
@@ -40,6 +41,7 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
