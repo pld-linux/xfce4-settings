@@ -26,6 +26,8 @@ BuildRequires:	xfconf-devel >= %{version}
 Buildrequires:	libnotify-devel
 BuildRequires:	libxklavier-devel
 Requires:	xfconf >= %{version}
+Obsoletes:	xfce-mcs-manager
+Obsoletes:	xfce-mcs-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
