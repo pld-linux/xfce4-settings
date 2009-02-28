@@ -1,0 +1,12 @@
+diff -urN xfce4-settings-4.6.0/xfsettingsd/xsettings.xml xfce4-settings-4.6.0.new/xfsettingsd/xsettings.xml
+--- xfce4-settings-4.6.0/xfsettingsd/xsettings.xml	2009-02-20 18:12:35.000000000 +0100
++++ xfce4-settings-4.6.0.new/xfsettingsd/xsettings.xml	2009-02-28 21:43:22.000000000 +0100
+@@ -3,7 +3,7 @@
+ <channel name="xsettings" version="1.0">
+   <property name="Net" type="empty">
+     <property name="ThemeName" type="string" value="Xfce"/>
+-    <property name="IconThemeName" type="string" value="Rodent"/>
++    <property name="IconThemeName" type="string" value="Tango"/>
+   </property>
+   <property name="Xft" type="empty">
+     <property name="DPI" type="int" value="-1"/>
