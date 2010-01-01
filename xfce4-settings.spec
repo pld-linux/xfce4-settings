@@ -25,7 +25,7 @@ BuildRequires:	libxfce4util-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 BuildRequires:	xfconf-devel >= %{version}
-Buildrequires:	libnotify-devel
+BuildRequires:	libnotify-devel
 BuildRequires:	libxklavier-devel
 Requires:	xfconf >= %{version}
 Obsoletes:	xfce-mcs-manager
