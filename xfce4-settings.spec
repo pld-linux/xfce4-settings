@@ -2,7 +2,7 @@ Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
 Version:	4.6.1
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
