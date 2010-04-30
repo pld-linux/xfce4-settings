@@ -2,13 +2,14 @@ Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
 Version:	4.6.1
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	dc1c8704471c5b0104fa10c30eb60cb6
 Patch0:		%{name}-default-icon-theme.patch
 Patch1:		%{name}-libxklavier4.patch
+Patch2:		%{name}-libxklavier5.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
@@ -44,6 +45,7 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__intltoolize}
