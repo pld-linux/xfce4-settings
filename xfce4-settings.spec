@@ -21,14 +21,15 @@ BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.10.6
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.12.0
 BuildRequires:	libxfce4util-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
+BuildRequires:	libxklavier-devel
+BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 BuildRequires:	xfconf-devel >= %{version}
-BuildRequires:	libnotify-devel
-BuildRequires:	libxklavier-devel
 Requires:	xfconf >= %{version}
 Obsoletes:	xfce-mcs-manager
 Obsoletes:	xfce-mcs-plugins
