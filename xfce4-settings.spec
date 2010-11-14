@@ -1,16 +1,13 @@
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.6.1
-Release:	6
+Version:	4.7.4
+Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	dc1c8704471c5b0104fa10c30eb60cb6
+Source0:	http://www.xfce.org/archive/xfce/4.8pre1/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	8ef68534a931c902c714cd251a7485be
 Patch0:		%{name}-default-icon-theme.patch
-Patch1:		%{name}-libxklavier4.patch
-Patch2:		%{name}-libxklavier5.patch
-Patch3:		%{name}-XI2.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
@@ -24,13 +21,17 @@ BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.12.0
-BuildRequires:	libxfce4util-devel >= %{version}
-BuildRequires:	libxfcegui4-devel >= %{version}
+#BuildRequires:	libxfce4util-devel >= %{version}
+#BuildRequires:	libxfce4ui-devel >= %{version}
+BuildRequires:	libxfce4util-devel >= 4.7.0
+BuildRequires:	libxfce4ui-devel >= 4.7.0
 BuildRequires:	libxklavier-devel
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-dev-tools >= 4.6.0
-BuildRequires:	xfconf-devel >= %{version}
-Requires:	xfconf >= %{version}
+BuildRequires:	xfce4-dev-tools >= 4.7.0
+#BuildRequires:	xfconf-devel >= %{version}
+BuildRequires:	xfconf-devel >= 4.7.0
+#Requires:	xfconf >= %{version}
+Requires:	xfconf >= 4.7.0
 Obsoletes:	xfce-mcs-manager
 Obsoletes:	xfce-mcs-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -46,9 +47,6 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
 
 %build
 %{__intltoolize}
