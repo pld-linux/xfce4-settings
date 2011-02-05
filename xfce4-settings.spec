@@ -1,37 +1,34 @@
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.7.4
+Version:	4.8.1
 Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.xfce.org/archive/xfce/4.8pre1/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	8ef68534a931c902c714cd251a7485be
+Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	0097476baadcc9bc9841d6b8e687b8eb
 Patch0:		%{name}-default-icon-theme.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	exo-devel >= 0.3.100
+BuildRequires:	exo-devel >= 0.6.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.10.6
+BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	intltool
-BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.12.0
-#BuildRequires:	libxfce4util-devel >= %{version}
-#BuildRequires:	libxfce4ui-devel >= %{version}
-BuildRequires:	libxfce4util-devel >= 4.7.0
-BuildRequires:	libxfce4ui-devel >= 4.7.0
+BuildRequires:	libxfce4ui-devel >= 4.8.0
+BuildRequires:	libxfce4util-devel >= 4.8.0
 BuildRequires:	libxklavier-devel
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-dev-tools >= 4.7.0
-#BuildRequires:	xfconf-devel >= %{version}
-BuildRequires:	xfconf-devel >= 4.7.0
-#Requires:	xfconf >= %{version}
-Requires:	xfconf >= 4.7.0
+BuildRequires:	xfce4-dev-tools >= 4.8.0
+BuildRequires:	xfconf-devel >= 4.8.0
+BuildRequires:	xorg-lib-libXcursor-devel >= 1.1.0
+BuildRequires:	xorg-lib-libXi-devel
+BuildRequires:	xorg-proto-inputproto-devel >= 1.4.0
+Requires:	xfconf >= 4.8.0
 Obsoletes:	xfce-mcs-manager
 Obsoletes:	xfce-mcs-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,7 +52,9 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-silent-rules
+
 %{__make}
 
 %install
@@ -63,6 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
 
 %find_lang %{name}
 
