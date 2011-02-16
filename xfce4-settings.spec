@@ -1,33 +1,34 @@
-%define		xfce_version	4.6.2
+%define		xfce_version	4.8.0
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.6.5
+Version:	4.8.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.xfce.org/archive/xfce-%{xfce_version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	f988cb732913b5fbc115ad7105d2231e
+Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	0097476baadcc9bc9841d6b8e687b8eb
 Patch0:		%{name}-default-icon-theme.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	exo-devel >= 0.3.100
+BuildRequires:	exo-devel >= 0.6.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.10.6
+BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	intltool
-BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.12.0
+BuildRequires:	libxfce4ui-devel >= %{xfce_version}
 BuildRequires:	libxfce4util-devel >= %{xfce_version}
-BuildRequires:	libxfcegui4-devel >= %{xfce_version}
 BuildRequires:	libxklavier-devel
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-dev-tools >= 4.6.0
+BuildRequires:	xfce4-dev-tools >= %{xfce_version}
 BuildRequires:	xfconf-devel >= %{xfce_version}
+BuildRequires:	xorg-lib-libXcursor-devel >= 1.1.0
+BuildRequires:	xorg-lib-libXi-devel
+BuildRequires:	xorg-proto-inputproto-devel >= 1.4.0
 Requires:	xfconf >= %{xfce_version}
 Obsoletes:	xfce-mcs-manager
 Obsoletes:	xfce-mcs-plugins
@@ -52,7 +53,9 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-silent-rules
+
 %{__make}
 
 %install
@@ -61,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
 
 %find_lang %{name}
 
