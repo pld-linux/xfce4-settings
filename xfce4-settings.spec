@@ -78,10 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-keyboard-settings
 %attr(755,root,root) %{_bindir}/xfce4-mouse-settings
 %attr(755,root,root) %{_bindir}/xfce4-settings-editor
-%attr(755,root,root) %{_bindir}/xfce4-settings-helper
+#%attr(755,root,root) %{_bindir}/xfce4-settings-helper
 %attr(755,root,root) %{_bindir}/xfce4-settings-manager
 %attr(755,root,root) %{_bindir}/xfsettingsd
-%{_sysconfdir}/xdg/autostart/xfce4-settings-helper-autostart.desktop
+#%{_sysconfdir}/xdg/autostart/xfce4-settings-helper-autostart.desktop
 %{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 %{_desktopdir}/xfce-display-settings.desktop
 %{_desktopdir}/xfce-keyboard-settings.desktop
