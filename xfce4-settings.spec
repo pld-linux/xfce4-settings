@@ -1,19 +1,18 @@
-%define		xfce_version	4.8.0
+%define		xfce_version	4.10.0
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.8.3
+Version:	4.10.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	4669298cc8a4abf0e5a410016b575030
-Patch0:		%{name}-default-icon-theme.patch
+Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	cc4dd9179ead9046c056431f01a12000
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	exo-devel >= 0.6.0
+BuildRequires:	exo-devel >= 0.8.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gtk+2-devel >= 2:2.14.0
@@ -44,7 +43,6 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
