@@ -3,7 +3,7 @@ Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
 Version:	4.10.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.10/%{name}-%{version}.tar.bz2
@@ -81,6 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-settings-editor
 %attr(755,root,root) %{_bindir}/xfce4-settings-manager
 %attr(755,root,root) %{_bindir}/xfsettingsd
+%dir %{_libdir}/xfce4/settings
 %attr(755,root,root) %{_libdir}/xfce4/settings/appearance-install-theme
 %{_sysconfdir}/xdg/autostart/xfsettingsd.desktop
 %{_sysconfdir}/xdg/menus/xfce-settings-manager.menu
