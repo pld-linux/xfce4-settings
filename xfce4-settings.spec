@@ -76,12 +76,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-appearance-settings
 %attr(755,root,root) %{_bindir}/xfce4-display-settings
 %attr(755,root,root) %{_bindir}/xfce4-keyboard-settings
+%attr(755,root,root) %{_bindir}/xfce4-mime-settings
 %attr(755,root,root) %{_bindir}/xfce4-mouse-settings
 %attr(755,root,root) %{_bindir}/xfce4-settings-editor
-#%attr(755,root,root) %{_bindir}/xfce4-settings-helper
 %attr(755,root,root) %{_bindir}/xfce4-settings-manager
 %attr(755,root,root) %{_bindir}/xfsettingsd
-#%{_sysconfdir}/xdg/autostart/xfce4-settings-helper-autostart.desktop
+%attr(755,root,root) %{_libdir}/xfce4/settings/appearance-install-theme
+%{_sysconfdir}/xdg/autostart/xfsettingsd.desktop
+%{_sysconfdir}/xdg/menus/xfce-settings-manager.menu
 %{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 %{_desktopdir}/xfce-display-settings.desktop
 %{_desktopdir}/xfce-keyboard-settings.desktop
@@ -89,4 +91,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/xfce-settings-manager.desktop
 %{_desktopdir}/xfce-ui-settings.desktop
 %{_desktopdir}/xfce4-accessibility-settings.desktop
+%{_desktopdir}/xfce4-mime-settings.desktop
 %{_desktopdir}/xfce4-settings-editor.desktop
