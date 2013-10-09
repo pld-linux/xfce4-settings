@@ -1,0 +1,26 @@
+From 1d62ea7fb76ce14c87c61dd4a41d6ccc5b9c6095 Mon Sep 17 00:00:00 2001
+From: Lionel Le Folgoc <lionel@lefolgoc.net>
+Date: Sun, 28 Oct 2012 17:11:13 +0100
+Subject: [PATCH] Xfsettingsd: Check for NoSuchExtension (bug #9390).
+
+---
+ xfsettingsd/pointers.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/xfsettingsd/pointers.c b/xfsettingsd/pointers.c
+index a060051..e7192e7 100644
+--- a/xfsettingsd/pointers.c
++++ b/xfsettingsd/pointers.c
+@@ -129,7 +129,8 @@ xfce_pointers_helper_init (XfcePointersHelper *helper)
+     version = XGetExtensionVersion (xdisplay, INAME);
+ 
+     /* check for Xi */
+-    if (version == NULL || !version->present)
++    if (version == NULL || ((long) version) == NoSuchExtension
++        || !version->present)
+     {
+         g_critical ("XI is not present.");
+     }
+-- 
+1.8.3.1
+
