@@ -1,13 +1,13 @@
-%define		xfce_version	4.11.0
+%define		xfce_version	4.12.0
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.11.3
-Release:	3
+Version:	4.12.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	dfd78eb223607a2b37e3863da2b923fd
+Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	3eb9ff3862d773287f56f142ab7ec361
 Patch0:		01_use-tango-icon-theme.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
@@ -16,8 +16,8 @@ BuildRequires:	dbus-glib-devel >= 0.34
 BuildRequires:	exo-devel >= 0.8.0
 BuildRequires:	garcon-devel >= 0.1.10
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.16.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	glib2-devel >= 1:2.30.0
+BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	intltool
 BuildRequires:	libcanberra-devel
 BuildRequires:	libnotify-devel
@@ -27,13 +27,12 @@ BuildRequires:	libxfce4util-devel >= %{xfce_version}
 BuildRequires:	libxklavier-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= %{xfce_version}
-#BuildRequires:	xfconf-devel >= %{xfce_version}
-BuildRequires:	xfconf-devel >= 4.10.0
+BuildRequires:	xfconf-devel >= %{xfce_version}
+BuildRequires:	xorg-driver-input-libinput-devel
 BuildRequires:	xorg-lib-libXcursor-devel >= 1.1.0
 BuildRequires:	xorg-lib-libXi-devel
 BuildRequires:	xorg-proto-inputproto-devel >= 1.4.0
-#Requires:	xfconf >= %{xfce_version}
-Requires:	xfconf >= 4.10.0
+Requires:	xfconf >= %{xfce_version}
 Obsoletes:	xfce-mcs-manager
 Obsoletes:	xfce-mcs-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,6 +49,8 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 %setup -q
 %patch0 -p1
 
+mkdir -p m4
+
 %build
 %{__intltoolize}
 %{__libtoolize}
@@ -59,6 +60,7 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 %{__automake}
 %configure \
 	--disable-silent-rules \
+	--enable-pluggable-dialogs \
 	--enable-sound-settings
 
 %{__make}
