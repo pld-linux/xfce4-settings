@@ -2,35 +2,39 @@
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.12.0
+Version:	4.13.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	3eb9ff3862d773287f56f142ab7ec361
+Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	219e88fb5d52dd3bd133ab56d47faba5
 Patch0:		01_use-tango-icon-theme.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
-BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	exo-devel >= 0.8.0
+BuildRequires:	dbus-glib-devel >= 0.84
+BuildRequires:	exo-devel >= 0.12.0
+BuildRequires:	fontconfig-devel >= 2.6.0
 BuildRequires:	garcon-devel >= 0.1.10
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.30.0
-BuildRequires:	gtk+2-devel >= 2:2.24.0
+BuildRequires:	glib2-devel >= 1:2.45.8
+BuildRequires:	gtk+3-devel
 BuildRequires:	intltool
 BuildRequires:	libcanberra-devel
+BuildRequires:	libinput-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
-BuildRequires:	libxfce4ui-devel >= %{xfce_version}
+BuildRequires:	libxfce4ui-devel >= 4.13.0
 BuildRequires:	libxfce4util-devel >= %{xfce_version}
 BuildRequires:	libxklavier-devel
 BuildRequires:	pkgconfig
+BuildRequires:	upower-devel
 BuildRequires:	xfce4-dev-tools >= %{xfce_version}
-BuildRequires:	xfconf-devel >= %{xfce_version}
+BuildRequires:	xfconf-devel >= 4.13.0
 BuildRequires:	xorg-driver-input-libinput-devel
 BuildRequires:	xorg-lib-libXcursor-devel >= 1.1.0
-BuildRequires:	xorg-lib-libXi-devel
+BuildRequires:	xorg-lib-libXi-devel >= 1.2.0
+BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-proto-inputproto-devel >= 1.4.0
 Requires:	xfconf >= %{xfce_version}
 Obsoletes:	xfce-mcs-manager
@@ -84,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-accessibility-settings
 %attr(755,root,root) %{_bindir}/xfce4-appearance-settings
 %attr(755,root,root) %{_bindir}/xfce4-display-settings
+%attr(755,root,root) %{_bindir}/xfce4-find-cursor
 %attr(755,root,root) %{_bindir}/xfce4-keyboard-settings
 %attr(755,root,root) %{_bindir}/xfce4-mime-settings
 %attr(755,root,root) %{_bindir}/xfce4-mouse-settings
