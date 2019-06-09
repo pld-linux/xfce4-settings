@@ -2,12 +2,12 @@
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.13.2
+Version:	4.13.6
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	219e88fb5d52dd3bd133ab56d47faba5
+# Source0-md5:	480d3ce2e313cd25e397fdf571d65c42
 Patch0:		01_use-tango-icon-theme.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
@@ -76,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ie
 
 %find_lang %{name}
 
@@ -87,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS TODO
 %attr(755,root,root) %{_bindir}/xfce4-accessibility-settings
 %attr(755,root,root) %{_bindir}/xfce4-appearance-settings
+%attr(755,root,root) %{_bindir}/xfce4-color-settings
 %attr(755,root,root) %{_bindir}/xfce4-display-settings
 %attr(755,root,root) %{_bindir}/xfce4-find-cursor
 %attr(755,root,root) %{_bindir}/xfce4-keyboard-settings
@@ -106,6 +108,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/xfce-settings-manager.desktop
 %{_desktopdir}/xfce-ui-settings.desktop
 %{_desktopdir}/xfce4-accessibility-settings.desktop
+%{_desktopdir}/xfce4-color-settings.desktop
 %{_desktopdir}/xfce4-mime-settings.desktop
 %{_desktopdir}/xfce4-settings-editor.desktop
+%{_iconsdir}/hicolor/*x*/apps/xfce4-color-settings.png
 %{_iconsdir}/hicolor/*x*/devices/xfce-display-*.png
+%{_iconsdir}/hicolor/scalable/apps/xfce4-color-settings.svg
