@@ -2,12 +2,12 @@
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.14.0
+Version:	4.14.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	dcbc673448e1a816b2c47a7ce0ca13aa
+# Source0-md5:	2f4171c21db905d9ba0ca9bee3fc7a5b
 Patch0:		01_use-tango-icon-theme.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
