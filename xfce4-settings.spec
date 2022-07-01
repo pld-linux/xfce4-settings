@@ -3,12 +3,13 @@ Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
 Version:	4.16.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.16/%{name}-%{version}.tar.bz2
 # Source0-md5:	66828054b7c745dde39f1d4031ef0291
 Patch0:		01_use-tango-icon-theme.patch
+Patch1:		xfsettingsd_xsettings_c.patch
 URL:		http://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
@@ -53,6 +54,7 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p0
 %{__sed} -i '1s,/usr/bin/env python3$,%{__python3},' \
                 dialogs/mime-settings/helpers/xfce4-compose-mail
 
