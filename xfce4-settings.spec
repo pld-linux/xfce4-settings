@@ -1,15 +1,15 @@
-%define		xfce_version	4.16.0
+%define		xfce_version	4.18.0
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.16.5
+Version:	4.18.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/xfce/xfce4-settings/4.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	bb5102273cd644c63d90b7f672727e88
+Source0:	https://archive.xfce.org/src/xfce/xfce4-settings/4.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	d6eea102f01f9691a81542d05a6edff7
 Patch0:		01_use-tango-icon-theme.patch
-URL:		http://www.xfce.org/projects/xfce4-settings/
+URL:		https://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	colord-devel >= 1.0.2
@@ -25,13 +25,13 @@ BuildRequires:	libcanberra-devel
 BuildRequires:	libinput-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
-BuildRequires:	libxfce4ui-devel >= 4.15.1
+BuildRequires:	libxfce4ui-devel >= 4.18.0
 BuildRequires:	libxfce4util-devel >= %{xfce_version}
 BuildRequires:	libxklavier-devel
 BuildRequires:	pkgconfig
 BuildRequires:	upower-devel
 BuildRequires:	xfce4-dev-tools >= %{xfce_version}
-BuildRequires:	xfconf-devel >= 4.15.0
+BuildRequires:	xfconf-devel >= 4.18.0
 BuildRequires:	xorg-driver-input-libinput-devel
 BuildRequires:	xorg-lib-libXcursor-devel >= 1.1.0
 BuildRequires:	xorg-lib-libXi-devel >= 1.2.0
