@@ -1,14 +1,13 @@
-%define		xfce_version	4.18.0
+%define		xfce_version	4.20.0
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.18.6
+Version:	4.20.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	https://archive.xfce.org/src/xfce/xfce4-settings/4.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	37a5f463b2b81ac74a09edbda8ed4fb0
-Patch0:		01_use-tango-icon-theme.patch
+Source0:	https://archive.xfce.org/src/xfce/xfce4-settings/4.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	b7f96eb44beb80a820a15eb6bd0b246d
 URL:		https://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
@@ -18,20 +17,20 @@ BuildRequires:	exo-devel >= 4.15.1
 BuildRequires:	fontconfig-devel >= 2.6.0
 BuildRequires:	garcon-devel >= 0.1.10
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.50.8
-BuildRequires:	gtk+3-devel
+BuildRequires:	glib2-devel >= 1:2.72.0
+BuildRequires:	gtk+3-devel >= 3.24.0
 BuildRequires:	intltool
 BuildRequires:	libcanberra-devel
 BuildRequires:	libinput-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
-BuildRequires:	libxfce4ui-devel >= 4.18.0
+BuildRequires:	libxfce4ui-devel >= 4.20.0
 BuildRequires:	libxfce4util-devel >= %{xfce_version}
 BuildRequires:	libxklavier-devel
 BuildRequires:	pkgconfig
 BuildRequires:	upower-devel
 BuildRequires:	xfce4-dev-tools >= %{xfce_version}
-BuildRequires:	xfconf-devel >= 4.18.0
+BuildRequires:	xfconf-devel >= 4.20.0
 BuildRequires:	xorg-driver-input-libinput-devel
 BuildRequires:	xorg-lib-libXcursor-devel >= 1.1.0
 BuildRequires:	xorg-lib-libXi-devel >= 1.2.0
@@ -52,14 +51,12 @@ Menadżer ustawień pozwala w łatwy i intuicyjny sposób dostosowywać
 
 %prep
 %setup -q
-%patch0 -p1
 %{__sed} -i '1s,/usr/bin/env python3$,%{__python3},' \
                 dialogs/mime-settings/helpers/xfce4-compose-mail
 
 mkdir -p m4
 
 %build
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -67,7 +64,6 @@ mkdir -p m4
 %{__automake}
 %configure \
 	--disable-silent-rules \
-	--enable-pluggable-dialogs \
 	--enable-sound-settings \
 	--enable-upower-glib
 
@@ -79,6 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} -r $RPM_BUILD_ROOT%{_libdir}/gtk-3.0/modules/libxfsettingsd-gtk-settings-sync.la
+
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{hye,ie,ur_PK}
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{hy_AM,hy}
 
@@ -89,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS TODO
+%doc AUTHORS NEWS README.md
 %attr(755,root,root) %{_bindir}/xfce4-accessibility-settings
 %attr(755,root,root) %{_bindir}/xfce4-appearance-settings
 %attr(755,root,root) %{_bindir}/xfce4-color-settings
@@ -102,6 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-settings-editor
 %attr(755,root,root) %{_bindir}/xfce4-settings-manager
 %attr(755,root,root) %{_bindir}/xfsettingsd
+%attr(755,root,root) %{_libdir}/gtk-3.0/modules/libxfsettingsd-gtk-settings-sync.so
 %dir %{_libdir}/xfce4/settings
 %attr(755,root,root) %{_libdir}/xfce4/settings/appearance-install-theme
 %attr(755,root,root) %{_libdir}/xfce4/xfce4-compose-mail
