@@ -2,12 +2,12 @@
 Summary:	Settings manager for the Xfce desktop environment
 Summary(pl.UTF-8):	Menadżer ustawień dla środowiska Xfce
 Name:		xfce4-settings
-Version:	4.20.2
+Version:	4.20.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	https://archive.xfce.org/src/xfce/xfce4-settings/4.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	5f249a8398718995edb264b132059029
+# Source0-md5:	75737b79fa990085763a7ae0ee105c2a
 URL:		https://www.xfce.org/projects/xfce4-settings/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
